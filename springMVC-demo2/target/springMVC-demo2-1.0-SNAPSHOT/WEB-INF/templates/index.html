@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=http://www.thymeleaf.org>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>首页</h1>
+<a th:href="@{/testRequestMapping}">测试requestmapping注解的位置</a>
+<a th:href="@{/testRequestMapping}">测试requestmapping注解value属性</a>
+<a th:href="@{/test}">测试requestmapping注解value属性</a>
+<a th:href="@{/test}">测试requestmapping注解get属性</a>
+
+
+<a th:href="@{/testGetMapping}">测试getmapping注解</a>
+
+
+<form th:action="@{/test}" method="post">
+    <input type="submit" value="测试method属性  post">
+</form>
+<!--不是get post 默认get-->
+<form th:action="@{/testPut}" method="put">
+    <input type="submit" value="测试form是否可以 put or delete">
+</form>
+
+<!--<a th:href="@{/testParamsAndHeaders?username=admin}">测试testParamsAndHeaders注解</a>  -->
+<!--上面会有警告但是可以成功 有个疑问  /WEB-INF/templates/wetestput.html?  肯定不对 说明th会识别 是否加后缀？ 从servlet出来的才加？-->
+<br>
+
+<a th:href="@{/testParamsAndHeaders(username=admin)}">测试testParamsAndHeaders注解</a>
+<a th:href="testParamsAndHeaders">测试 th testParamsAndHeaders注解</a>
+<a href="testParamsAndHeaders">测试testParamsAndHeaders注解</a>
+<a href="/testParamsAndHeaders">测试/testParamsAndHeaders注解!!!!!!!!!!!!!!!!</a>
+
+
+<br>
+
+<a th:href="@{/testPath/1}">测试testPath/1注解</a>
+
+<a th:href="@{/testPath/1/tx}">测试testPath/1/tx注解</a>
+
+<br>
+
+<a th:href="@{/param}">测试testParam</a>
+
+
+
+
+</body>
+</html>
