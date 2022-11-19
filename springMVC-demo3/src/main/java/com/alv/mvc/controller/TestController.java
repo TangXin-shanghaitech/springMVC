@@ -1,7 +1,6 @@
 package com.alv.mvc.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author ：tangxin
@@ -10,11 +9,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class TestController {
-    @RequestMapping("/")
-    public String index(){
-        return "index";
-    }
 
+//    @RequestMapping("/")
+//    public String index(){
+//        System.out.println("zhixing");
+//        return "index";
+//    }
+
+
+//    @RequestMapping("/test_view")
+//    并不是傻逼  发来的是 test_view  返回的是 test_view.html还有前缀哦
+//    public String test_view(){
+//        return "test_view";
+//    }
 
 
 }

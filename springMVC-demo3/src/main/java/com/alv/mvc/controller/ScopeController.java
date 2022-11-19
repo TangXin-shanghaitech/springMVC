@@ -6,7 +6,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Map;
 import java.util.Objects;
 
@@ -39,6 +41,7 @@ public class ScopeController {
     @RequestMapping("/testModel")
     public String testModel(Model model){
         model.addAttribute("testRequestScope","hello,model");
+        System.out.println(model.getClass().getName());
         return "success";
 
 
@@ -47,6 +50,8 @@ public class ScopeController {
     @RequestMapping("/testMap")
     public String testMap(Map<String, Object> map){
         map.put("testRequestScope","hello,map");
+        System.out.println(map);
+
         return "success";
     }
 
@@ -54,8 +59,23 @@ public class ScopeController {
     public String testModelMap(ModelMap modelMap){
 //        modelMap.addAttribute("testRequestScope","hello,modelMap");
         modelMap.put("testRequestScope","hello,modelMap ppppp");
+        System.out.println(modelMap);
         return "success";
     }
+
+    @RequestMapping("/testSession")
+    public String testSession(HttpSession httpSession){
+        httpSession.setAttribute("testSessionScope","hello Session");
+        return "success";
+    }
+
+    @RequestMapping("/testApplication")
+    public String testApplication(HttpSession httpSession){
+        ServletContext servletContext = httpSession.getServletContext();
+        servletContext.setAttribute("testApplicationScope","hello,testApplication");
+        return "success";
+    }
+
 
 
 
